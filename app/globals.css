@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+/* swiperjs */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;

@@ -4,36 +4,39 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../assets/images/Ampersand_group_logo 1.png";
 import { FiLogOut } from "react-icons/fi";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { LuClipboardList } from "react-icons/lu";
+import { RiUserSettingsFill } from "react-icons/ri";
 
 const Sidebar = () => {
   const menuData = [
     {
-      icon: <FiLogOut className="h-[24px] w-[24px]" />,
+      icon: <LuLayoutDashboard className="h-[24px] w-[24px]" />,
       title: "Dashboard",
       path: "/dashboard",
     },
     {
-      icon: <FiLogOut className="h-[24px] w-[24px]" />,
+      icon: <LuLayoutDashboard className="h-[24px] w-[24px]" />,
       title: "Masters",
       path: "/masters",
     },
     {
-      icon: <FiLogOut className="h-[24px] w-[24px]" />,
+      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
       title: "Venue Partner",
       path: "/venue-partner",
     },
     {
-      icon: <FiLogOut className="h-[24px] w-[24px]" />,
+      icon: <LuClipboardList className="h-[24px] w-[24px]" />,
       title: "Exams",
       path: "/exams",
     },
     {
-      icon: <FiLogOut className="h-[24px] w-[24px]" />,
+      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
       title: "Manpower Master",
       path: "/manpower-master",
     },
     {
-      icon: <FiLogOut className="h-[24px] w-[24px]" />,
+      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
       title: "Roles and Previlage",
       path: "/roles-and-previlage",
     },
@@ -43,7 +46,7 @@ const Sidebar = () => {
     <div className="h-screen flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
       <div className="flex flex-col gap-[14px]">
         <div className="flex flex-col items-center gap-[15px] border-b border-[#A3A3A3]">
-          <Image src={Logo} className="mb-[15px]" />
+          <Image src={Logo} className="mb-[15px]" alt="logoImg" />
         </div>
 
         <div className="overflow-y-auto overflow-x-hidden flex-grow">

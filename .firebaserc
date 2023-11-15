@@ -1,0 +1,21 @@
+{
+  "projects": {
+    "default": "ampersand-19772"
+  },
+  "targets": {
+    "ampersand-19772": {
+      "hosting": {
+        "live": [
+          "ampersand-19772"
+        ],
+        "dev": [
+          "ampersand-dev-ccbd2"
+        ],
+        "uat": [
+          "ampersand-uat"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
