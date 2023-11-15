@@ -40,10 +40,15 @@ const Sidebar = () => {
       title: "Roles and Previlage",
       path: "/roles-and-previlage",
     },
+    {
+      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
+      title: "Center",
+      path: "/center",
+    },
   ];
 
   return (
-    <div className="h-screen flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
+    <div className="h-full flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
       <div className="flex flex-col gap-[14px]">
         <div className="flex flex-col items-center gap-[15px] border-b border-[#A3A3A3]">
           <Image src={Logo} className="mb-[15px]" alt="logoImg" />

@@ -11,9 +11,7 @@ const page = () => {
     <>
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <p className="text-[20px]">
-            Venue Partner / <span className="font-medium">Add New Vendor</span>
-          </p>
+          <p className="text-[20px] font-medium">Exam Management</p>
           <div className="flex gap-4">
             <Link href={"#"}>
               <SecondaryBtn title={"cancel"} />
@@ -50,7 +48,7 @@ const page = () => {
           <div className="flex items-center justify-center w-full">
             <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full p-[32px] border-2 border-[#864F20] border-dashed rounded-2xl cursor-pointer">
               <div className="flex flex-col items-center justify-center gap-3">
-                <Image src={fileImg} alt="fileImg"/>
+                <Image src={fileImg} alt="fileImg" />
                 <p className="text-[16px] font-normal text-[#864F20]">Drag and drop a file or <span className='underline'>browse file</span></p>
                 <p className="text-[14px] font-normal text-[#C2A78F] italic tracking-[0.3px]">(Supported Only .pdf, .cSV File )</p>
               </div>

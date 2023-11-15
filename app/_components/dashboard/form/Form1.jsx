@@ -1,77 +1,277 @@
 import React from 'react'
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
 
 const Form1 = ({ incrementStep, decrimentStep, setFormData }) => {
 
-    const scheme = z.object({
-        fullName: z.string().min(5).max(50),
-        email: z.string().email(),
-        address: z.string().max(50),
-        city: z.string(),
-        country: z.string(),
-        state: z.string(),
-        zipcode: z.number()
-    })
-
-    const submitData = (data) => {
-        setFormData(prev => [...prev, data])
-        incrementStep()
-    }
-
-    const { register, handleSubmit } = useForm({ resolver: zodResolver(scheme) })
-
     return (
         <>
-            <form className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5 p-8" onSubmit={handleSubmit(submitData)}>
-                <div className="md:col-span-5">
-                    <label htmlFor="full_name">Full Name</label>
-                    <input type="text" name="full_name" id="full_name"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" {...register("fullName")} />
+            <form className="sm:flex sm:flex-col sm:gap-[24px] md:grid gap-y-2 text-sm grid-cols-1 md:grid-cols-6 p-[16px] bg-white ring-1 ring-gray-300 rounded-md">
+                <h1 className="text-[20px] font-medium col-span-6">Personal Details</h1>
+                <div className="relative h-[58px] col-span-1 md:col-span-6">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Center Name*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Email Address*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Phone Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-6">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Alternate Phone Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
                 </div>
 
-                <div className="md:col-span-5">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" name="email" id="email"
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        placeholder="email@domain.com" {...register("email")} />
-                </div>
-
-                <div className="md:col-span-3">
-                    <label htmlFor="address">Address / Street</label>
-                    <input type="text" name="address" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" {...register("address")} />
-                </div>
-
-                <div className="md:col-span-2">
-                    <label htmlFor="city">City</label>
-                    <input type="text" name="city" id="city" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" {...register("city")} />
-                </div>
-
-                <div className="md:col-span-2">
-                    <label htmlFor="country">Country / region</label>
-                    <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                        <input name="country" id="country" placeholder="Country" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" {...register("country")} />
+                <div className="flex justify-between col-span-6">
+                    <p className="text-[16px] font-medium">Center Type*</p>
+                    <div className="flex gap-[24px]">
+                        <div class="flex items-center">
+                            <input type="radio" class="w-4 h-4" />
+                            <label class="ms-2 text-[16px] font-normal">School</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" class="w-4 h-4" />
+                            <label class="ms-2 text-[16px] font-normal">College</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" class="w-4 h-4" />
+                            <label class="ms-2 text-[16px] font-normal">Training Institute</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" class="w-4 h-4" />
+                            <label class="ms-2 text-[16px] font-normal">Test Center</label>
+                        </div>
                     </div>
                 </div>
 
-                <div className="md:col-span-2">
-                    <label htmlFor="state">State / province</label>
-                    <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                        <input name="state" id="state" placeholder="State" className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" {...register("state")} />
-                    </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Pin Code*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        State*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        District*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Taluka*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        City*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Village*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-6">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Address Line 1*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-6">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Address Line 2*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-6">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Address Line 3*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
                 </div>
 
-                <div className="md:col-span-1">
-                    <label htmlFor="zipcode">Zipcode</label>
-                    <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" {...register("zipcode", { valueAsNumber: true })} />
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Landmark*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
                 </div>
 
-                <div className="md:col-span-5 text-right">
-                    <div className="inline-flex items-end">
-                        <button type='submit' className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-2 px-4 rounded"
-                        >Next</button>
-                    </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Google Map Link*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Nearest AirPort*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Distance from AirPort (in KM)*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Nearest Railway Station*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Distance from Railway Station (in KM)*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Nearest Bus Stand*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Distance from Bus Stand (in KM)*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        GST Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Upload GST Certificate*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        PAN Card Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Upload PAN Card Copy*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Aadhar Card Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Upload Aadhar Card Copy*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-6">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        Agreement Copy signed with Venue Partner
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        SPOC 1 Name*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        SPOC 2 Name*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        SPOC 1 Email ID*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        SPOC 2 Email ID*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        SPOC 1 Phone Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                </div>
+                <div className="relative h-[58px] col-span-1 md:col-span-3">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                        SPOC 2 Phone Number*
+                    </label>
+                    <input
+                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
                 </div>
             </form>
         </>
