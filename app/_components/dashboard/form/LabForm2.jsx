@@ -4,18 +4,26 @@ const LabForm2 = () => {
     return (
         <>
             <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
-                <div className="lg:col-span-6 relative h-[58px]">
-                    <label className=" absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+
+                <div className="lg:col-span-5 relative h-[58px]">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
                         Areas Covered Under Surveillance*
                     </label>
-                    <input className=" absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                    <select className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                    </select>
                 </div>
-
-                <div className="lg:col-span-6 relative h-[58px]">
-                    <label className=" absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+                <div className="lg:col-span-5 relative h-[58px]">
+                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
                         Labs Covered Under Surveillance*
                     </label>
-                    <input className=" absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
+                    <select className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                    </select>
                 </div>
 
                 <div className="lg:col-span-6 relative h-[58px]">
