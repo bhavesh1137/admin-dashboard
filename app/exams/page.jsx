@@ -6,7 +6,7 @@ import PrimaryBtn from "../_components/primaryBtn/PrimaryBtn";
 import fileImg from "../assets/icons/file.png";
 import Image from "next/image";
 
-const page = () => {
+const ExamPage = () => {
   const [isFileUpload, SetFileUpload] = useState(false);
   return (
     <>
@@ -167,4 +167,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ExamPage;
