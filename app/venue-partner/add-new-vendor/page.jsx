@@ -33,10 +33,6 @@ const page = () => {
             <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
               Company Type*
             </label>
-            {/* <input
-              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
-              placeholder="placeholder"
-            /> */}
             <select className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10">
               <option value="">Partnership</option>
               <option value="">Partnership</option>
@@ -61,7 +57,7 @@ const page = () => {
               placeholder="Pin code"
             />
           </div>
-          <div className="flex items-center">
+          <div className="cursor-pointer flex items-center">
             <p className="text-[#1B72E8] text-[14px] font-medium">
               Fetch Address
             </p>
@@ -139,7 +135,7 @@ const page = () => {
           <div className="flex items-center gap-2">
             <input
               type="checkbox"
-              className=" appearance-none w-[18px] h-[18px] border-2 border-[#1B72E8] rounded-sm checked:bg-blue-800"
+              className="cursor-pointer appearance-none w-[18px] h-[18px] border-2 border-[#1B72E8] rounded-sm checked:bg-blue-800"
             />
             <label className="text-[14px] font-medium text-[#1B72E8]">
               Copy Registered Office Address
@@ -205,6 +201,180 @@ const page = () => {
             <input
               className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
               placeholder="Address Line 2"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[14px] font-medium">Contact Person</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-6  p-4 border border-slate-400 rounded-lg">
+          <div className="lg:col-span-12 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Name*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Name"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Email ID*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Email ID"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Mobile Number*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Mobile Number"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[14px] font-medium">Name Of The Owner</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-6  p-4 border border-slate-400 rounded-lg">
+          <div className="lg:col-span-12 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Name*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Name"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Email ID*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Email ID"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Mobile Number*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Mobile Number"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[14px] font-medium">Company Details</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-6  p-4 border border-slate-400 rounded-lg">
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              PAN No.*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="PAN No."
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Aadhar No.*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Aadhar No."
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              GST No.*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="GST No."
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              MSME Registration Number*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="MSME Registration Number"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[14px] font-medium">Bank Details</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-x-4 gap-y-6  p-4 border border-slate-400 rounded-lg">
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Bank Name*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Bank Name"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Account Number*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Account Number"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Branch*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Branch"
+            />
+          </div>
+
+          <div className="lg:col-span-6 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              IFSC Code*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="IFSC Code"
+            />
+          </div>
+
+          <div className="lg:col-span-12 relative h-[58px]">
+            <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
+              Address*
+            </label>
+            <input
+              className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
+              placeholder="Address"
             />
           </div>
         </div>

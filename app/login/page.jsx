@@ -29,7 +29,7 @@ const LoginPage = () => {
   const router = useRouter();
   return (
     <section className="flex p-3 md:px-5 md:gap-5 bg-[#FBF5F2] h-screen w-full relative flex-col md:flex-row">
-      <div className="absolute top-[20px] left-[20px]">
+      <div className="cursor-pointer absolute top-[20px] left-[20px]">
         <Image src={Logo} height={45} width={45} alt="logoImg" />
       </div>
       <div className="flex justify-center items-center lg:w-1/2 h-full w-full">

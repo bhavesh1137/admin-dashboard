@@ -37,7 +37,7 @@ const Form1 = ({ incrementStep, decrimentStep, setFormData }) => {
 
                 <div className="flex justify-between col-span-6">
                     <p className="text-[16px] font-medium">Center Type*</p>
-                    <div className="flex gap-[24px]">
+                    <div className="flex flex-col md:flex-row gap-[24px]">
                         <div class="flex items-center">
                             <input type="radio" class="w-4 h-4" />
                             <label class="ms-2 text-[16px] font-normal">School</label>

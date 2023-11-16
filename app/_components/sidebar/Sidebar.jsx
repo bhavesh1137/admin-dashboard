@@ -50,7 +50,7 @@ const Sidebar = () => {
   return (
     <div className="h-full flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
       <div className="flex flex-col gap-[14px]">
-        <div className="flex flex-col items-center gap-[15px] border-b border-[#A3A3A3]">
+        <div className="cursor-pointer flex flex-col items-center gap-[15px] border-b border-[#A3A3A3]">
           <Image src={Logo} className="mb-[15px]" alt="logoImg" />
         </div>
 
@@ -78,7 +78,7 @@ const Sidebar = () => {
           </ul>
         </div>
       </div>
-      <div className="w-[62px] flex flex-col justify-center items-center gap-[4px]">
+      <div className="cursor-pointer w-[62px] flex flex-col justify-center items-center gap-[4px]">
         <div className="px-[16px] py-[4px]">
           <FiLogOut className="rotate-180 h-[24px] w-[24px]" />
         </div>

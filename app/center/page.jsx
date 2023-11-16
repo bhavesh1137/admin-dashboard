@@ -5,6 +5,7 @@ import Form from "../_components/dashboard/form/Form";
 const CenterPage = () => {
 
     const [formStep, setFormStep] = useState(1)
+    const [addLab, setAddLab] = useState(["Lab 1", "Lab 2", "Lab 3"])
 
     const incrementStep = () => {
         setFormStep(step => step + 1)
@@ -62,6 +63,17 @@ const CenterPage = () => {
                             <h3 className={`font-medium lg:block ${formStep === 5 ? "text-[#864F20]" : "text-gray-400"} `}>Lab details</h3>
                         </li>
                     </ol>
+                    {formStep === 5 ?
+                        <>
+                            {addLab.map((lab, i) => {
+                                return <p className={`ms-5 mt-5 font-medium lg:block ${formStep === 5 ? "text-[#864F20]" : "text-gray-400"} `}>{lab}</p>
+
+                            })}
+                        </>
+                        : ""
+                    }
+                    <button className='text-green-400 ms-5 mt-5 font-medium'>Add Lab +</button>
+
                 </div>
 
                 <div className="w-full">
