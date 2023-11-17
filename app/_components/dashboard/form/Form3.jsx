@@ -36,7 +36,7 @@ const Form3 = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-[24px] ml-[50px]">
+          <div className="flex flex-col gap-[24px] ml-0 sm:ml-[50px]">
             <div className="flex justify-between">
               <p className="text-[16px] font-normal">
                 Are Fire Extinguishers Easily Accessible During Fire Emergency?*

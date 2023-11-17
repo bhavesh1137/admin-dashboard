@@ -5,7 +5,7 @@ const LabForm3 = () => {
         <>
             <div className="flex justify-between">
                 <p className="text-[16px] font-normal">Type Of Network*</p>
-                <div className="flex gap-[24px]">
+                <div className="flex gap-[24px flex-col sm:flex-row]">
                     <div class="flex items-center">
                         <input type="radio" class="w-4 h-4" />
                         <label class="ms-2 text-[16px] font-normal">LAN</label>
@@ -19,7 +19,7 @@ const LabForm3 = () => {
 
             <div className="flex justify-between">
                 <p className="text-[16px] font-normal">Single / Multiple LAN*</p>
-                <div className="flex gap-[24px]">
+                <div className="flex gap-[24px] flex-col sm:flex-row">
                     <div class="flex items-center">
                         <input type="radio" class="w-4 h-4" />
                         <label class="ms-2 text-[16px] font-normal">Single</label>
@@ -33,7 +33,7 @@ const LabForm3 = () => {
 
             <div className="flex justify-between">
                 <p className="text-[16px] font-normal">Topology*</p>
-                <div className="flex gap-[24px]">
+                <div className="flex gap-[24px] flex-col sm:flex-row">
                     <div class="flex items-center">
                         <input type="radio" class="w-4 h-4" />
                         <label class="ms-2 text-[16px] font-normal">Star</label>

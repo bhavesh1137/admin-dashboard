@@ -23,7 +23,7 @@ const Form2 = () => {
 
         <div className="flex justify-between">
           <p className="text-[16px] font-normal">Building Type*</p>
-          <div className="flex gap-[24px]">
+          <div className="flex gap-[24px] flex-col sm:flex-row">
             <div class="flex items-center">
               <input type="radio" class="w-4 h-4" />
               <label class="ms-2 text-[16px] font-normal">Residential</label>
@@ -104,10 +104,10 @@ const Form2 = () => {
 
         <div className="flex flex-col gap-[24px]">
           <p className="text-[16px] font-normal text-[#864F20]">
-            Are Candidates Allowed To Park Their Vehicle Inside The Venue?*
+            Suitable For PWD (Person With Disability)?*
           </p>
 
-          <div className="flex flex-col gap-[24px] ml-[50px]">
+          <div className="flex flex-col gap-[24px] ml-0 sm:ml-[50px]">
             <div className="flex justify-between">
               <p className="text-[16px] font-normal">
                 Ramp Facility For PWD CAndidates*
@@ -175,7 +175,7 @@ const Form2 = () => {
         <div className="flex flex-col gap-[24px]">
           <p className="text-[16px] font-normal text-[#864F20]">Washrooms*</p>
 
-          <div className="flex flex-col gap-[24px] ml-[50px]">
+          <div className="flex flex-col gap-[24px] ml-0 sm:ml-[50px]">
             <div className="flex justify-between">
               <p className="text-[16px] font-normal">
                 Washrooms Available On Each Floor?*
