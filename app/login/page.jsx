@@ -22,6 +22,11 @@ import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+//Validation Imports
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { loginSchema } from '../helpers/validations/schema/login'
+
 
 
 const images = [
@@ -37,16 +42,36 @@ const LoginPage = () => {
   const [otpId, setOtpId] = useState("")
   const [activOtpIndex, setActivOtpIndex] = useState(0)
   const inputRef = useRef(null)
+  const [seconds, setSeconds] = useState(60);
+  const [error, setError] = useState(false)
   const router = useRouter();
+
+  //Validation Schema
+  const { register, handleSubmit, formState: { errors } } = useForm({ resolver: zodResolver(loginSchema) });
 
   useEffect(() => {
     inputRef.current?.focus()
   }, [activOtpIndex])
 
-  const handleEmail = async () => {
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSeconds(prevSeconds => prevSeconds - 1);
+    }, 1000);
+
+    if (seconds === 0) {
+      clearInterval(intervalId);
+    }
+    return () => clearInterval(intervalId);
+  }, [seconds, login]);
+
+
+  const handleEmail = async (data) => {
+    setEmail(data.email)
     try {
       const resp = await axios.post("https://node-backend-tvwblrb2za-el.a.run.app//api/v1/user/sign-in", { emailId: email })
+      console.log(resp);
       setOtpId(resp.data.data.otpId)
+      toast.success("OTP Sent Successfully")
       setLogin(true)
     } catch (err) {
       if (err.request.status === 404) {
@@ -56,6 +81,7 @@ const LoginPage = () => {
   };
 
   const handleVerifyOtp = async () => {
+    setError(false)
     try {
       const resp = await axios.post("https://node-backend-tvwblrb2za-el.a.run.app/api/v1/user/verify-otp", {
         emailId: email,
@@ -63,6 +89,7 @@ const LoginPage = () => {
         otp: parseInt(otp.join(""))
       })
         .then(res => {
+          console.log(res);
           toast.success(res.data.message)
           setTimeout(() => {
             router.push("/dashboard")
@@ -72,7 +99,8 @@ const LoginPage = () => {
       if (err.request.status === 400) {
         toast.error(err.message);
       } else if (err.request.status === 401) {
-        toast.error("Invalid OTP");
+        console.error("Invalid OTP");
+        setError(true)
       }
     }
   };
@@ -88,10 +116,8 @@ const LoginPage = () => {
     } else {
       setActivOtpIndex(index + 1)
     }
-
     setOtp(newOtp);
   }
-
 
 
   return (
@@ -105,8 +131,8 @@ const LoginPage = () => {
         <div className="relative h-auto flex flex-col justify-center items-center bg-white shadow-sm p-3 md:px-[48px] md:py-[56px] w-max rounded-[8px]">
           {login
             ? (
+              //Enetr OTP Section
               <>
-                {/* Enetr OTP Section  */}
                 <span
                   className="absolute left-[24px] top-[24px] cursor-pointer"
                   onClick={() => setLogin(false)}
@@ -136,11 +162,11 @@ const LoginPage = () => {
                     }
                   </div>
                   <div className="w-full flex justify-between">
-                    <span className="text-[#38AC4A] text-[12px]">00:60</span>
-                    {/* <span className="text-[#E6393E] text-[12px]">
-                      Incorrect OTP
-                    </span> */}
-                    <span className="text-[#666] text-[12px]">0/6</span>
+                    <span className={`${seconds === 0 ? "text-[#E6393E] text-[12px]" : "text-[#38AC4A] text-[12px]"}`}>00:{seconds < 10 ? `0${seconds}` : seconds}</span>
+                    <span className="text-[#E6393E] text-[12px]">
+                      {error ? "Incorrect OTP" : ""}
+                    </span>
+                    <span className="text-[#666] text-[12px]">{otp.join("").length}/6</span>
                   </div>
                 </div>
 
@@ -171,17 +197,15 @@ const LoginPage = () => {
                   <input
                     className="w-full p-3 rounded-[8px] border-[2px]"
                     type="email"
-                    value={email}
-                    name="email"
                     placeholder="abc@ampersandgroup.in"
-                    required
-                    onChange={(e) => { setEmail(e.target.value) }}
+                    {...register("email")}
                   />
+                  {errors.email?.message && <p className="text-red-500">{errors.email?.message}</p>}
                 </div>
 
                 <button
                   className="px-[40px] py-[10px] md:px-[56px] md:py-[13px] bg-[#AE0005] rounded-full uppercase text-white mb-[16px] shadow-sm"
-                  onClick={handleEmail}
+                  onClick={handleSubmit(handleEmail)}
                 >
                   Generate OTP
                 </button>

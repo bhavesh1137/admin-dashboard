@@ -1,4 +1,3 @@
-import Lists from '@/app/_components/dashboard/lists/Lists'
 import Link from 'next/link'
 import React from 'react'
 

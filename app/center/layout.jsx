@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import Sidebar from "../_components/sidebar/Sidebar";
-import Navbar from "../_components/dashboard/navbar/Navbar";
+import Navbar from "../_components/navbar/Navbar";
 
 
 const layout = ({ children }) => {

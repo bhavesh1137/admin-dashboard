@@ -1,170 +1,243 @@
-"use client";
-import React, { useState } from "react";
 import Link from "next/link";
-import SecondaryBtn from "../_components/secondaryBtn/SecondaryBtn";
-import PrimaryBtn from "../_components/primaryBtn/PrimaryBtn";
-import fileImg from "../assets/icons/file.png";
+import React from "react";
+import { FaPlus } from "react-icons/fa6";
+import { FiSearch, FiSliders } from "react-icons/fi";
+import Pagination from "../_components/pagination/Pagination";
+import edit from "../assets/icons/fi_edit-3.svg";
+import trash from "../assets/icons/fi_trash-2.svg";
 import Image from "next/image";
 
-const ExamPage = () => {
-  const [isFileUpload, SetFileUpload] = useState(false);
+const page = () => {
+  const currentPage = 1;
+  const totalPages = 10;
+
   return (
-    <>
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <p className="text-[20px] font-medium">Exam Management</p>
-          <div className="flex gap-4">
-            <Link href={"#"}>
-              <SecondaryBtn title={"cancel"} />
-            </Link>
-            <PrimaryBtn title={"save"} />
-          </div>
+    <div className="flex flex-col gap-4">
+      <p className="text-[20px] font-medium">Exam Management</p>
+      <div className="flex items-center justify-between flex-col lg:flex-row gap-4">
+        <div className="flex gap-4 flex-col items-center md:flex-row">
+          <Link href={"#"}>
+            <button className="px-[24px] py-[10px] bg-[#F8F0DE] uppercase text-[14px] font-medium text-[#864F20] border border-[#864F20] rounded-[100px]">
+              ongoing
+            </button>
+          </Link>
+
+          <Link href={"#"}>
+            <button className="px-[24px] py-[10px] bg-[#FFF] uppercase text-[14px] font-medium border border-[#A3A3A3] rounded-[100px]">
+              past
+            </button>
+          </Link>
+
+          <Link href={"#"}>
+            <button className="px-[24px] py-[10px] bg-[#FFF] uppercase text-[14px] font-medium border border-[#A3A3A3] rounded-[100px]">
+              upcoming
+            </button>
+          </Link>
         </div>
 
-        <form className="p-4 bg-white border border-slate-400 rounded-lg flex flex-col gap-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
-            <div className="lg:col-span-12 relative h-[58px]">
-              <label className=" absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
-                Exam Name*
-              </label>
-              <input
-                className=" absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10"
-                placeholder="Exam Name"
-              />
-            </div>
-
-            <div className="lg:col-span-2 flex flex-col gap-4">
-              <label className="text-[14px] font-medium">Exam start date</label>
-              <input
-                type="date"
-                className="w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal cursor-pointer"
-              />
-            </div>
-
-            <div className="lg:col-span-2 flex flex-col gap-4">
-              <label className="text-[14px] font-medium">Exam end date</label>
-              <input
-                type="date"
-                className="w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal cursor-pointer"
-              />
-            </div>
+        <div className="flex gap-8 flex-col items-center md:flex-row">
+          <div className="flex items-center gap-4 max-w-[380px] bg-white px-[24px] py-[10px] border border-[#00000042] rounded-[100px]">
+            <FiSearch className="h-[18px]" />
+            <input
+              className="text-[14px] font-medium outline-none"
+              type="text"
+              placeholder="Search here..."
+            />
           </div>
 
-          <p className="text-[14px] font-medium">Exam details</p>
+          <Link href={"#"}>
+            <button className="px-[24px] py-[10px] bg-[#FFF] uppercase text-[14px] font-medium border border-[#00000042] rounded-[100px] flex items-center gap-1">
+              <FiSliders className="text-[18px] rotate-90" />
+              filter
+            </button>
+          </Link>
 
-          <div className="flex items-center justify-center w-full">
-            <label
-              onChange={() => {
-                SetFileUpload(!isFileUpload);
-              }}
-              htmlFor="dropzone-file"
-              className={`${
-                isFileUpload ? "hidden" : "flex"
-              } flex-col items-center justify-center w-full p-[32px] border-2 border-[#864F20] border-dashed rounded-2xl cursor-pointer`}
-            >
-              <div className="flex flex-col items-center justify-center gap-3">
-                <Image src={fileImg} alt="fileImg" />
-                <p className="text-[16px] font-normal text-[#864F20]">
-                  Drag and drop a file or{" "}
-                  <span className="underline">browse file</span>
-                </p>
-                <p className="text-[14px] font-normal text-[#C2A78F] italic tracking-[0.3px]">
-                  (Supported Only .pdf, .cSV File )
-                </p>
-              </div>
-              <input id="dropzone-file" type="file" className="hidden" />
-            </label>
-          </div>
-
-          <div
-            className={`${
-              isFileUpload ? "flex" : "hidden"
-            } flex-col gap-[24px]`}
-          >
-            <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
-              <div className="lg:col-span-6 relative h-[58px]">
-                <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
-                  State
-                </label>
-                <select className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10 cursor-pointer">
-                  <option value="">Maharashtra</option>
-                  <option value="">aharashtra</option>
-                  <option value="">aharashtra</option>
-                </select>
-              </div>
-
-              <div className="lg:col-span-6 relative h-[58px]">
-                <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
-                  District
-                </label>
-                <select className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10 cursor-pointer">
-                  <option value="">Mumbai</option>
-                  <option value="">Mumbai</option>
-                  <option value="">Mumbai</option>
-                </select>
-              </div>
-            </div>
-
-            <p className="text-[14px] font-medium">City & Candidates</p>
-
-            <div className="p-4 bg-white border border-slate-400 rounded-lg grid md:grid-cols-2 lg:grid-cols-12 cursor-pointer">
-              <div className="lg:col-span-6 border-r ">
-                <div className="flex justify-between pr-[30px]">
-                  <ul>
-                    <li className="text-[14px] font-medium">City</li>
-                    <li className="text-[14px]">Mumbai</li>
-                    <li className="text-[14px]">Thane</li>
-                    <li className="text-[14px]">Nagpur</li>
-                    <li className="text-[14px]">Pune</li>
-                    <li className="text-[14px]">Dhule</li>
-                  </ul>
-
-                  <ul className="text-center">
-                    <li className="text-[14px] font-medium">Candidates</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="lg:col-span-6 border-l">
-                <div className="flex justify-between pl-[30px]">
-                  <ul>
-                    <li className="text-[14px] font-medium">City</li>
-                    <li className="text-[14px]">Mumbai</li>
-                    <li className="text-[14px]">Thane</li>
-                    <li className="text-[14px]">Nagpur</li>
-                    <li className="text-[14px]">Pune</li>
-                    <li className="text-[14px]">Dhule</li>
-                  </ul>
-
-                  <ul className="text-center">
-                    <li className="text-[14px] font-medium">Candidates</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                    <li className="text-[14px]">3433</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-
-        <div className={`${isFileUpload ? "block" : "hidden"}`}>
-          <button
-            onClick={() => SetFileUpload(!isFileUpload)}
-            className="px-[24px] py-[12px] bg-[#AE0005] uppercase text-[14px] font-medium text-white rounded-[40px]"
-          >
-            Reupload Exam Details File
-          </button>
+          <Link href={"/exams/add-exam"}>
+            <button className="px-[24px] py-[12px] bg-[#AE0005] uppercase text-[14px] font-medium text-white rounded-[40px] flex items-center gap-1">
+              <FaPlus className="text-[18px]" />
+              new exam
+            </button>
+          </Link>
         </div>
       </div>
-    </>
+
+      <div className="overflow-x-auto bg-white border border-black/26 rounded-lg h-screen">
+        <table className=" table-auto w-full border-collapse ">
+          <thead className="text-[16px] font-medium text-[#864F20] border-b border-[#00000026] capitalize tracking-[0.8px]">
+            <tr>
+              <th className="px-4 py-6 text-left">Exam Name</th>
+              <th className="px-4 py-6 text-left">Exam ID</th>
+              <th className="px-4 py-6 text-left">Start Date</th>
+              <th className="px-4 py-6 text-left">End Date</th>
+              <th className="px-4 py-6 text-left">No. Of Center</th>
+              <th className="px-4 py-6 text-left">No. Of Manpower</th>
+              <th className="px-4 py-6 text-center">No. Of Candidates</th>
+              <th className="px-4 py-6 text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="text-[16px] font-normal text-black/87 capitalize tracking-[0.32px] border-b border-[#00000026] ">
+            <tr>
+              <td className="px-4 py-6 border-b text-left">Exam Name</td>
+              <td className="px-4 py-6 border-b text-left">EX10101</td>
+              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
+              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                <Link href={"/booking-requests"}>320</Link>
+              </td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                320
+              </td>
+              <td className="px-4 py-6 border-b text-center">345840</td>
+              <td className="px-4 py-6 border-b text-center">
+                <div className="flex gap-2 items-center justify-center">
+                  <Link href={"/exams/add-exam"}>
+                    <Image
+                      src={edit}
+                      alt="edit"
+                      title="Edit"
+                      className=" cursor-pointer"
+                    />
+                  </Link>
+                  <Image
+                    src={trash}
+                    alt="delete"
+                    title="Delete"
+                    className=" cursor-pointer"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="px-4 py-6 border-b text-left">Exam Name</td>
+              <td className="px-4 py-6 border-b text-left">EX10101</td>
+              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
+              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                <Link href={"/booking-requests"}>320</Link>
+              </td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                320
+              </td>
+              <td className="px-4 py-6 border-b text-center">345840</td>
+              <td className="px-4 py-6 border-b text-center">
+                <div className="flex gap-2 items-center justify-center">
+                  <Link href={"/exams/add-exam"}>
+                    <Image
+                      src={edit}
+                      alt="edit"
+                      title="Edit"
+                      className=" cursor-pointer"
+                    />
+                  </Link>
+                  <Image
+                    src={trash}
+                    alt="delete"
+                    title="Delete"
+                    className=" cursor-pointer"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="px-4 py-6 border-b text-left">Exam Name</td>
+              <td className="px-4 py-6 border-b text-left">EX10101</td>
+              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
+              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                <Link href={"/booking-requests"}>320</Link>
+              </td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                320
+              </td>
+              <td className="px-4 py-6 border-b text-center">345840</td>
+              <td className="px-4 py-6 border-b text-center">
+                <div className="flex gap-2 items-center justify-center">
+                  <Link href={"/exams/add-exam"}>
+                    <Image
+                      src={edit}
+                      alt="edit"
+                      title="Edit"
+                      className=" cursor-pointer"
+                    />
+                  </Link>
+                  <Image
+                    src={trash}
+                    alt="delete"
+                    title="Delete"
+                    className=" cursor-pointer"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="px-4 py-6 border-b text-left">Exam Name</td>
+              <td className="px-4 py-6 border-b text-left">EX10101</td>
+              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
+              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                <Link href={"/booking-requests"}>320</Link>
+              </td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                320
+              </td>
+              <td className="px-4 py-6 border-b text-center">345840</td>
+              <td className="px-4 py-6 border-b text-center">
+                <div className="flex gap-2 items-center justify-center">
+                  <Link href={"/exams/add-exam"}>
+                    <Image
+                      src={edit}
+                      alt="edit"
+                      title="Edit"
+                      className=" cursor-pointer"
+                    />
+                  </Link>
+                  <Image
+                    src={trash}
+                    alt="delete"
+                    title="Delete"
+                    className=" cursor-pointer"
+                  />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td className="px-4 py-6 border-b text-left">Exam Name</td>
+              <td className="px-4 py-6 border-b text-left">EX10101</td>
+              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
+              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                <Link href={"/booking-requests"}>320</Link>
+              </td>
+              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
+                320
+              </td>
+              <td className="px-4 py-6 border-b text-center">345840</td>
+              <td className="px-4 py-6 border-b text-center">
+                <div className="flex gap-2 items-center justify-center">
+                  <Link href={"/exams/add-exam"}>
+                    <Image
+                      src={edit}
+                      alt="edit"
+                      title="Edit"
+                      className=" cursor-pointer"
+                    />
+                  </Link>
+                  <Image
+                    src={trash}
+                    alt="delete"
+                    title="Delete"
+                    className=" cursor-pointer"
+                  />
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <Pagination currentPage={currentPage} totalPages={totalPages} />
+    </div>
   );
 };
 
-export default ExamPage;
+export default page;

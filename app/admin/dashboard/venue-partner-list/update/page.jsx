@@ -1,4 +1,3 @@
-import Lists from '@/app/_components/dashboard/lists/Lists'
 import React from 'react'
 
 const page = () => {

@@ -1,7 +1,7 @@
-import Navbar from "@/app/_components/dashboard/navbarDummy/Navbar";
-import Sidebar from "@/app/_components/dashboard/sidebarDumy/SidebarDummy";
 import React from "react";
 import { AiOutlineHome } from "react-icons/ai";
+import Sidebar from '../_components/sidebar/Sidebar'
+import Navbar from '../_components/navbar/Navbar'
 
 const layout = ({ children }) => {
 

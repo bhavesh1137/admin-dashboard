@@ -13,6 +13,41 @@
     box-sizing: border-box;
 }
 
-input[type='radio']{
+input[type='radio'] {
     cursor: pointer;
+    position: relative;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #AE0005;
+    content: '';
+    visibility: visible;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #AE0005;
+}
+
+input[type=number] {
+    position: relative;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+    -webkit-appearance: inner-spin-button !important;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    height: 100%;
+}
+
+
+input[type=checkbox] {
+    accent-color: #AE0005;
 }

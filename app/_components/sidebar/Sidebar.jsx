@@ -4,56 +4,63 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../assets/images/Ampersand_group_logo 1.png";
 import { FiLogOut } from "react-icons/fi";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { LuClipboardList } from "react-icons/lu";
-import { RiUserSettingsFill } from "react-icons/ri";
-
+import dashboard from "../../assets/icons/dashboard.svg";
+import exam from "../../assets/icons/exam.svg";
+import users from "../../assets/icons/users.svg";
 const Sidebar = () => {
   const menuData = [
     {
-      icon: <LuLayoutDashboard className="h-[24px] w-[24px]" />,
+      icon: dashboard,
       title: "Dashboard",
       path: "/dashboard",
     },
     {
-      icon: <LuLayoutDashboard className="h-[24px] w-[24px]" />,
-      title: "Masters",
-      path: "/masters",
-    },
-    {
-      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
-      title: "Venue Partner",
-      path: "/venue-partner",
-    },
-    {
-      icon: <LuClipboardList className="h-[24px] w-[24px]" />,
+      icon: exam,
       title: "Exams",
       path: "/exams",
     },
     {
-      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
-      title: "Manpower Master",
-      path: "/manpower-master",
+      icon: users,
+      title: "Venue Partner",
+      path: "/venue-partner",
     },
+    // {
+    //   icon: dashboard,
+    //   title: "Venue",
+    //   path: "/masters",
+    // },
+    // {
+    //   icon: users,
+    //   title: "Manpower",
+    //   path: "/manpower-master",
+    // },
     {
-      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
+      icon: users,
       title: "Roles and Previlage",
       path: "/roles-and-previlage",
     },
     {
-      icon: <RiUserSettingsFill className="h-[24px] w-[24px]" />,
+      icon: dashboard,
       title: "Center",
       path: "/center",
     },
+    {
+      icon: dashboard,
+      title: "Center Audit",
+      path: "/audit-requests",
+    },
+    {
+      icon: dashboard,
+      title: "Center Booking",
+      path: "/booking-requests",
+    },
   ];
-
   return (
     <div className="h-full flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
       <div className="flex flex-col gap-[14px]">
         <div className="cursor-pointer flex flex-col items-center gap-[15px] border-b border-[#A3A3A3]">
           <Image src={Logo} className="mb-[15px]" alt="logoImg" />
         </div>
-
         <div className="overflow-y-auto overflow-x-hidden flex-grow">
           <ul className="flex flex-col justify-center items-center gap-[24px]">
             {menuData.map((item, index) => {
@@ -66,7 +73,7 @@ const Sidebar = () => {
                     <div
                       className={`px-[16px] py-[4px] rounded-lg hover:bg-[#FBF6EC] `}
                     >
-                      {item.icon}
+                      <Image src={item.icon} alt={item.title} />
                     </div>
                     <span className="text-[12px] text-center py-[6px]">
                       {item.title}
@@ -87,5 +94,4 @@ const Sidebar = () => {
     </div>
   );
 };
-
 export default Sidebar;
