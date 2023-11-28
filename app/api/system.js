@@ -1,10 +1,13 @@
 import axiosInstance from "../api/axiosInstance";
-const baseUrl = "https://node-backend-tvwblrb2za-el.a.run.app/api/v1";
+const baseUrl = "https://node-backend-tvwblrb2za-el.a.run.app";
 
 //Add Systems
 export const addSystem = async (obj, labId) => {
   try {
-    const resp = await axiosInstance.post(`${baseUrl}/${labId}/system`, obj);
+    const resp = await axiosInstance.post(
+      `${baseUrl}/api/v1/${labId}/system`,
+      obj
+    );
     console.log(resp);
     return resp;
   } catch (error) {
@@ -16,7 +19,9 @@ export const addSystem = async (obj, labId) => {
 //Delete System
 export const deleteSystem = async (labId, id) => {
   try {
-    const resp = await axiosInstance.delete(`${baseUrl}/${labId}/system/${id}`);
+    const resp = await axiosInstance.delete(
+      `${baseUrl}/api/v1/${labId}/system/${id}`
+    );
     console.log(resp);
     return resp;
   } catch (error) {
@@ -28,7 +33,9 @@ export const deleteSystem = async (labId, id) => {
 //Get System
 export const getSystem = async (labId, id) => {
   try {
-    const resp = await axiosInstance.get(`${baseUrl}/${labId}/system/${id}`);
+    const resp = await axiosInstance.get(
+      `${baseUrl}/api/v1/${labId}/system/${id}`
+    );
     console.log(resp);
     return resp;
   } catch (error) {
@@ -40,7 +47,9 @@ export const getSystem = async (labId, id) => {
 //Update System
 export const updateSystem = async (labId, id) => {
   try {
-    const resp = await axiosInstance.post(`${baseUrl}/${labId}/system/${id}`);
+    const resp = await axiosInstance.post(
+      `${baseUrl}/api/v1/${labId}/system/${id}`
+    );
     console.log(resp);
     return resp;
   } catch (error) {
@@ -52,7 +61,7 @@ export const updateSystem = async (labId, id) => {
 //Get Lab List
 export const getSystemList = async (labId) => {
   try {
-    const resp = await axiosInstance.get(`${baseUrl}/${labId}/systems`);
+    const resp = await axiosInstance.get(`${baseUrl}/api/v1/${labId}/systems`);
     console.log(resp);
     return resp;
   } catch (error) {

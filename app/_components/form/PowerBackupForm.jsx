@@ -1,57 +1,86 @@
 import React from 'react'
 import Radio from "../../_components/radio/Radio";
 import Input from "../../_components/input/Input";
+import Date from '../date/Date';
+import File from '../file-input/File';
+import { useSearchParams } from 'next/navigation';
+import DropDown from '../dropdown/DropDown';
 
-const PowerBackupForm = () => {
+const PowerBackupForm = (props) => {
+    let { register, errors } = props;
+    const searchParams = useSearchParams()
+    const auditor = searchParams.get('auditor')
+    console.log(auditor);
     return (
-        <>
-            <h1 className="text-[20px] font-medium">Power Genset Details</h1>
+        <div className='w-full h-full flex flex-col gap-[24px]'>
+            <div className="w-full p-4 bg-white border ring-1 ring-gray-300 rounded-lg flex flex-col gap-[24px]">
 
-            <Radio
-                title={"Power Genset Type*"}
-                options={["Petrol", "Diesel"]}
-            // error={errors.buildingType?.message}
-            // radioRegister={{ ...register('buildingType', centerValidation.infrastructureDetails.buildingType) }}
-            />
+                <h1 className="text-[20px] font-medium">Power Genset Details</h1>
 
+                <div className='grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]'>
 
-            <div className='grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]'>
-                <Input
-                    label={"DG Capicity*"}
-                    classname={"lg:col-span-6"}
-                    type={"text"} />
-                <Input
-                    label={"Fuel Comsumption Per Hour*"}
-                    classname={"lg:col-span-6"}
-                    type={"text"} />
-                <Input
-                    label={"UPS Capicity*"}
-                    classname={"lg:col-span-6"}
-                    type={"text"} />
-                <Input
-                    label={"UPS Backup Time (In Mins)*"}
-                    classname={"lg:col-span-6"}
-                    type={"text"} />
-                <div className="relative h-[58px] lg:col-span-6">
-                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
-                        UPS Service Date*
-                    </label>
-                    <input
-                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" type='date' />
+                    <DropDown
+                        classname={"lg:col-span-12"}
+                        title="Power Genset Type"
+                        options={["Petrol", "Diesel"]}
+                    />
+                    <Input
+                        label={"DG Capicity*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('DGCapacity', { required: true }) }}
+                        error={errors.DGCapacity ? "Required" : ""}
+                    />
+                    <Input
+                        label={"Fuel Comsumption Per Hour*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('fuelCapacity', { required: true }) }}
+                        error={errors.fuelCapacity ? "Required" : ""}
+                    />
+                    <Input
+                        label={"UPS Capicity*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('UPSCapacity', { required: true }) }}
+                        error={errors.UPSCapacity ? "Required" : ""}
+                    />
+                    <Input
+                        label={"UPS Backup Time (In Mins)*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('UPSBackUpTime', { required: true }) }}
+                        error={errors.UPSBackUpTime ? "Required" : ""}
+                    />
+
+                    <Date
+                        label={"UPS Service Date*"}
+                        classname={"lg:col-span-6"}
+                        inputRegister={{ ...register('UPSServiceDate', { required: true }) }}
+                        error={errors.UPSServiceDate ? "Required" : ""}
+                    />
+                    <Date
+                        label={"DG Service Date*"}
+                        classname={"lg:col-span-6"}
+                        inputRegister={{ ...register('DGServiceDate', { required: true }) }}
+                        error={errors.DGServiceDate ? "Required" : ""}
+                    />
+
+                    <File
+                        title={"Upload Genset Image*"}
+                        classname={"lg:col-span-12"}
+                    />
                 </div>
-                <div className="relative h-[58px] lg:col-span-6">
-                    <label className="absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
-                        DG Service Date*
-                    </label>
-                    <input
-                        className="absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" type='date' />
-                </div>
-                <Input
-                    label={"Upload Genset Image*"}
-                    classname={"lg:col-span-12"}
-                    type={"text"} />
             </div>
-        </>
+            {auditor === "true" && <div className="p-[16px] rounded-lg ring-1 ring-gray-300 bg-white grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+                <h1 className="text-[20px] font-normal lg:col-span-12">Auditor Remark</h1>
+                <Input
+                    label={"Remark*"}
+                    classname={"lg:col-span-12"}
+                    type={"text"}
+                />
+            </div>}
+        </div>
     )
 }
 

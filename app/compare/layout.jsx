@@ -7,7 +7,7 @@ const layout = ({ children }) => {
       <div>
         <Sidebar />
       </div>
-      <div className="w-full">{children}</div>
+      <div className="w-full flex flex-col gap-[24px]]">{children}</div>
     </div>
   );
 };

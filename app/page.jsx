@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col text-lg font-bold p-4">
+      <div className="flex flex-col text-lg font-bold">
         Home Page
         <Link className="font-normal underline text-blue-400" href={"/login"}>Login</Link>
       </div>

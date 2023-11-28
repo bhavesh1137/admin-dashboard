@@ -1,10 +1,10 @@
 import React from 'react';
 
-const QuestionForm = ({ title, options, radioRegister, error }) => {
+const QuestionForm = ({ title, options, radioRegister, error, classname, span }) => {
 
     return (
-        <div className='flex justify-between items-center mb-5'>
-            <h2 className="text-[16px] font-normal">{title}</h2>
+        <div className={`${span} flex justify-between items-center py-[14px]`}>
+            <h2 className={`${classname} text-[16px] font-normal`}>{title}</h2>
             <div className='flex gap-[24px] flex-col sm:flex-row'>
                 {options.map((option, i) => {
                     return <label key={i} className='flex gap-2 items-center cursor-pointer'>

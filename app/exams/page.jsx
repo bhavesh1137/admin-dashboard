@@ -61,34 +61,34 @@ const page = () => {
         </div>
       </div>
 
-      <div className="overflow-x-auto bg-white border border-black/26 rounded-lg h-screen">
+      <div className="overflow-x-auto bg-white border border-[#C2A78F] rounded-lg">
         <table className=" table-auto w-full border-collapse ">
-          <thead className="text-[16px] font-medium text-[#864F20] border-b border-[#00000026] capitalize tracking-[0.8px]">
+          <thead className="text-[16px] font-medium text-[#864F20] border-b border-[#C2A78F] capitalize tracking-[0.8px]">
             <tr>
               <th className="px-4 py-6 text-left">Exam Name</th>
               <th className="px-4 py-6 text-left">Exam ID</th>
               <th className="px-4 py-6 text-left">Start Date</th>
               <th className="px-4 py-6 text-left">End Date</th>
-              <th className="px-4 py-6 text-left">No. Of Center</th>
+              <th className="px-4 py-6 text-left">No. Of Centers</th>
               <th className="px-4 py-6 text-left">No. Of Manpower</th>
               <th className="px-4 py-6 text-center">No. Of Candidates</th>
               <th className="px-4 py-6 text-center">Actions</th>
             </tr>
           </thead>
-          <tbody className="text-[16px] font-normal text-black/87 capitalize tracking-[0.32px] border-b border-[#00000026] ">
-            <tr>
-              <td className="px-4 py-6 border-b text-left">Exam Name</td>
-              <td className="px-4 py-6 border-b text-left">EX10101</td>
-              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
-              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                <Link href={"/booking-requests"}>320</Link>
+          <tbody className="text-[16px] font-normal text-black/87 capitalize tracking-[0.32px]  ">
+            <tr className="border-b border-[#C2A78F]">
+              <td className="px-4 py-6 text-left">
+                <Link href={"/exams/add-exam"}>Exam Name</Link>
               </td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                320
+              <td className="px-4 py-6 text-left">EX10101</td>
+              <td className="px-4 py-6 text-left">27-09-2023</td>
+              <td className="px-4 py-6 text-left">27-10-2023</td>
+              <td className="px-4 py-6 text-left text-[#1B72E8]">
+                <Link href={"/centre-bookings"}>320</Link>
               </td>
-              <td className="px-4 py-6 border-b text-center">345840</td>
-              <td className="px-4 py-6 border-b text-center">
+              <td className="px-4 py-6 text-left text-[#1B72E8]">320</td>
+              <td className="px-4 py-6 text-center">345840</td>
+              <td className="px-4 py-6 text-center">
                 <div className="flex gap-2 items-center justify-center">
                   <Link href={"/exams/add-exam"}>
                     <Image
@@ -107,19 +107,19 @@ const page = () => {
                 </div>
               </td>
             </tr>
-            <tr>
-              <td className="px-4 py-6 border-b text-left">Exam Name</td>
-              <td className="px-4 py-6 border-b text-left">EX10101</td>
-              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
-              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                <Link href={"/booking-requests"}>320</Link>
+            <tr className="border-b border-[#C2A78F]">
+              <td className="px-4 py-6 text-left">
+                <Link href={"/exams/add-exam"}>Exam Name</Link>
               </td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                320
+              <td className="px-4 py-6 text-left">EX10101</td>
+              <td className="px-4 py-6 text-left">27-09-2023</td>
+              <td className="px-4 py-6 text-left">27-10-2023</td>
+              <td className="px-4 py-6 text-left text-[#1B72E8]">
+                <Link href={"/centre-bookings"}>320</Link>
               </td>
-              <td className="px-4 py-6 border-b text-center">345840</td>
-              <td className="px-4 py-6 border-b text-center">
+              <td className="px-4 py-6 text-left text-[#1B72E8]">320</td>
+              <td className="px-4 py-6 text-center">345840</td>
+              <td className="px-4 py-6 text-center">
                 <div className="flex gap-2 items-center justify-center">
                   <Link href={"/exams/add-exam"}>
                     <Image
@@ -138,19 +138,19 @@ const page = () => {
                 </div>
               </td>
             </tr>
-            <tr>
-              <td className="px-4 py-6 border-b text-left">Exam Name</td>
-              <td className="px-4 py-6 border-b text-left">EX10101</td>
-              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
-              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                <Link href={"/booking-requests"}>320</Link>
+            <tr className="border-b border-[#C2A78F]">
+              <td className="px-4 py-6 text-left">
+                <Link href={"/exams/add-exam"}>Exam Name</Link>
               </td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                320
+              <td className="px-4 py-6 text-left">EX10101</td>
+              <td className="px-4 py-6 text-left">27-09-2023</td>
+              <td className="px-4 py-6 text-left">27-10-2023</td>
+              <td className="px-4 py-6 text-left text-[#1B72E8]">
+                <Link href={"/centre-bookings"}>320</Link>
               </td>
-              <td className="px-4 py-6 border-b text-center">345840</td>
-              <td className="px-4 py-6 border-b text-center">
+              <td className="px-4 py-6 text-left text-[#1B72E8]">320</td>
+              <td className="px-4 py-6 text-center">345840</td>
+              <td className="px-4 py-6 text-center">
                 <div className="flex gap-2 items-center justify-center">
                   <Link href={"/exams/add-exam"}>
                     <Image
@@ -169,19 +169,19 @@ const page = () => {
                 </div>
               </td>
             </tr>
-            <tr>
-              <td className="px-4 py-6 border-b text-left">Exam Name</td>
-              <td className="px-4 py-6 border-b text-left">EX10101</td>
-              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
-              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                <Link href={"/booking-requests"}>320</Link>
+            <tr className="border-b border-[#C2A78F]">
+              <td className="px-4 py-6 text-left">
+                <Link href={"/exams/add-exam"}>Exam Name</Link>
               </td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                320
+              <td className="px-4 py-6 text-left">EX10101</td>
+              <td className="px-4 py-6 text-left">27-09-2023</td>
+              <td className="px-4 py-6 text-left">27-10-2023</td>
+              <td className="px-4 py-6 text-left text-[#1B72E8]">
+                <Link href={"/centre-bookings"}>320</Link>
               </td>
-              <td className="px-4 py-6 border-b text-center">345840</td>
-              <td className="px-4 py-6 border-b text-center">
+              <td className="px-4 py-6 text-left text-[#1B72E8]">320</td>
+              <td className="px-4 py-6 text-center">345840</td>
+              <td className="px-4 py-6 text-center">
                 <div className="flex gap-2 items-center justify-center">
                   <Link href={"/exams/add-exam"}>
                     <Image
@@ -200,19 +200,19 @@ const page = () => {
                 </div>
               </td>
             </tr>
-            <tr>
-              <td className="px-4 py-6 border-b text-left">Exam Name</td>
-              <td className="px-4 py-6 border-b text-left">EX10101</td>
-              <td className="px-4 py-6 border-b text-left">27-09-2023</td>
-              <td className="px-4 py-6 border-b text-left">27-10-2023</td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                <Link href={"/booking-requests"}>320</Link>
+            <tr className="border-b border-[#C2A78F]">
+              <td className="px-4 py-6 text-left">
+                <Link href={"/exams/add-exam"}>Exam Name</Link>
               </td>
-              <td className="px-4 py-6 border-b text-left text-[#1B72E8]">
-                320
+              <td className="px-4 py-6 text-left">EX10101</td>
+              <td className="px-4 py-6 text-left">27-09-2023</td>
+              <td className="px-4 py-6 text-left">27-10-2023</td>
+              <td className="px-4 py-6 text-left text-[#1B72E8]">
+                <Link href={"/centre-bookings"}>320</Link>
               </td>
-              <td className="px-4 py-6 border-b text-center">345840</td>
-              <td className="px-4 py-6 border-b text-center">
+              <td className="px-4 py-6 text-left text-[#1B72E8]">320</td>
+              <td className="px-4 py-6 text-center">345840</td>
+              <td className="px-4 py-6 text-center">
                 <div className="flex gap-2 items-center justify-center">
                   <Link href={"/exams/add-exam"}>
                     <Image

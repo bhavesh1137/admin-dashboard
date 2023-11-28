@@ -3,51 +3,77 @@
 @tailwind utilities;
 
 /* swiperjs */
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-input[type='radio'] {
-    cursor: pointer;
-    position: relative;
+ body{
+  height: 100%;
+  width: 100%;
 }
 
-input[type='radio']:checked:after {
-    width: 15px;
-    height: 15px;
-    left: 0px;
-    top: 0px;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #AE0005;
-    content: '';
-    visibility: visible;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 2px #AE0005;
+@layer utilities {
+  @variants responsive {
+
+    /* Hide scrollbar for Chrome, Safari, and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  }
 }
 
-input[type=number] {
-    position: relative;
+input[type="radio"] {
+  cursor: pointer;
+  position: relative;
 }
 
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    opacity: 1;
-    -webkit-appearance: inner-spin-button !important;
-    background-color: #fff;
-    position: absolute;
-    top: 0;
-    right: 15px;
-    height: 100%;
+input[type="radio"]:checked:after {
+  width: 15px;
+  height: 15px;
+  left: 0px;
+  top: 0px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #ae0005;
+  content: "";
+  visibility: visible;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #ae0005;
 }
 
+input[type="number"] {
+  position: relative;
+  cursor: pointer;
+}
 
-input[type=checkbox] {
-    accent-color: #AE0005;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  opacity: 1;
+  -webkit-appearance: inner-spin-button !important;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  height: 100%;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  accent-color: #ae0005;
+  zoom: 1.5;
+  cursor: pointer;
 }

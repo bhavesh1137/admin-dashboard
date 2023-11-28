@@ -34,34 +34,39 @@ const Sidebar = () => {
     //   title: "Manpower",
     //   path: "/manpower-master",
     // },
+
+    {
+      icon: dashboard,
+      title: "Center Master",
+      path: "/center",
+    },
+    {
+      icon: dashboard,
+      title: "Centre Audits",
+      path: "/centre-audits",
+    },
+    {
+      icon: dashboard,
+      title: "Centre Bookings",
+      path: "/centre-bookings",
+    },
     {
       icon: users,
       title: "Roles and Previlage",
       path: "/roles-and-previlage",
     },
-    {
-      icon: dashboard,
-      title: "Center",
-      path: "/center",
-    },
-    {
-      icon: dashboard,
-      title: "Center Audit",
-      path: "/audit-requests",
-    },
-    {
-      icon: dashboard,
-      title: "Center Booking",
-      path: "/booking-requests",
-    },
   ];
   return (
-    <div className="h-full flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
+    <div className="h-screen flex flex-col items-center justify-between px-[12px] py-[24px] bg-[#F2E2BE] sticky top-0 left-0">
       <div className="flex flex-col gap-[14px]">
         <div className="cursor-pointer flex flex-col items-center gap-[15px] border-b border-[#A3A3A3]">
-          <Image src={Logo} className="mb-[15px]" alt="logoImg" />
+          <Image
+            src={Logo}
+            className="mb-[15px] h-[36px] w-[36px]"
+            alt="logoImg"
+          />
         </div>
-        <div className="overflow-y-auto overflow-x-hidden flex-grow">
+        <div className="">
           <ul className="flex flex-col justify-center items-center gap-[24px]">
             {menuData.map((item, index) => {
               return (

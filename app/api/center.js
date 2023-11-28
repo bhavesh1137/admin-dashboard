@@ -1,10 +1,10 @@
 import axiosInstance from "../api/axiosInstance";
-const baseUrl = "https://node-backend-tvwblrb2za-el.a.run.app/api/v1";
+const baseUrl = "https://node-backend-tvwblrb2za-el.a.run.app";
 
 //Add Center
 export const addCenter = async (obj) => {
   try {
-    const resp = await axiosInstance.post(`${baseUrl}/center`, obj);
+    const resp = await axiosInstance.post(`${baseUrl}/api/v1/center`, obj);
     console.log(resp);
     return resp;
   } catch (error) {
@@ -16,7 +16,7 @@ export const addCenter = async (obj) => {
 //Delete Center
 export const deleteCenter = async (id) => {
   try {
-    const resp = await axiosInstance.delete(`${baseUrl}/center/${id}`);
+    const resp = await axiosInstance.delete(`${baseUrl}/api/v1/center/${id}`);
     console.log(resp);
     return resp;
   } catch (error) {
@@ -28,7 +28,7 @@ export const deleteCenter = async (id) => {
 //Get Center
 export const getCenter = async (id) => {
   try {
-    const resp = await axiosInstance.get(`${baseUrl}/center/${id}`);
+    const resp = await axiosInstance.get(`${baseUrl}/api/v1/center/${id}`);
     console.log(resp);
     return resp;
   } catch (error) {
@@ -40,7 +40,7 @@ export const getCenter = async (id) => {
 //Update Center
 export const updateCenter = async (id) => {
   try {
-    const resp = await axiosInstance.post(`${baseUrl}/center/${id}`);
+    const resp = await axiosInstance.post(`${baseUrl}/api/v1/center/${id}`);
     console.log(resp);
     return resp;
   } catch (error) {
@@ -52,7 +52,7 @@ export const updateCenter = async (id) => {
 //Get Center List
 export const getCenterList = async () => {
   try {
-    const resp = await axiosInstance.get(`${baseUrl}/centers`);
+    const resp = await axiosInstance.get(`${baseUrl}/api/v1/centers`);
     console.log(resp);
     return resp;
   } catch (error) {
@@ -64,7 +64,10 @@ export const getCenterList = async () => {
 //Onboard Center
 export const onboardUser = async (obj) => {
   try {
-    const resp = await axiosInstance.post(`${baseUrl}/center/onboard`, obj);
+    const resp = await axiosInstance.post(
+      `${baseUrl}/api/v1/center/onboard`,
+      obj
+    );
     console.log(resp);
     return resp;
   } catch (error) {

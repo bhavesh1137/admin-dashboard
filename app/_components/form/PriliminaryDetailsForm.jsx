@@ -2,78 +2,96 @@ import React from 'react'
 import Radio from "../../_components/radio/Radio";
 import Input from "../../_components/input/Input";
 
-const LabForm1 = () => {
+const LabForm1 = (props) => {
+
+    let { register, errors } = props;
     return (
         <>
-            <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
-                <Input
-                    label={"Building Name*"}
-                    classname={"lg:col-span-6 mb-3"}
-                    type={"text"} />
+            <div className='p-[16px] h-full'>
+                <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-[24px]">
+                    <Input
+                        label={"Building Name*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('buildingName', { required: true }) }}
+                        error={errors.buildingName ? "Required" : ""}
+                    />
+
+                    <Input
+                        label={"Floor*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('floor', { required: true }) }}
+                        error={errors.floor ? "Required" : ""}
+                    />
+                    <Input
+                        label={"Lab Name*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('labName', { required: true }) }}
+                        error={errors.floor ? "Required" : ""}
+                    />
+
+                    <Input
+                        label={"No. of CCTVs*"}
+                        classname={"lg:col-span-6"}
+                        type={"text"}
+                        inputRegister={{ ...register('labNumber', { required: true }) }}
+                        error={errors.labNumber ? "Required" : ""}
+                    />
+
+                </div>
+                <div className='p-[16px] flex flex-col'>
+                    <Radio
+                        title={"Do the Labs have AC Available?*"}
+                        options={["Yes", "No"]}
+                        radioRegister={{ ...register('availableAC', { required: true }) }}
+                        error={errors.availableAC ? "Required" : ""}
+                    />
+                    <Radio
+                        title={"Do the Labs have Fans Available?*"}
+                        options={["Yes", "No"]}
+                        radioRegister={{ ...register('availableFan', { required: true }) }}
+                        error={errors.availableFan ? "Required" : ""}
+                    />
+                    <Radio
+                        title={"Are the labs noise free and soundproof?*"}
+                        options={["Yes", "No"]}
+                        radioRegister={{ ...register('soundProof', { required: true }) }}
+                        error={errors.soundProof ? "Required" : ""}
+                    />
+                    <Radio
+                        title={"Do the Labs have Partition available between 2 nodes ?*"}
+                        options={["Yes", "No"]}
+                        radioRegister={{ ...register('partitionBetween2Nodes', { required: true }) }}
+                        error={errors.partitionBetween2Nodes ? "Required" : ""}
+                    />
+
+                    <Radio
+                        title={"Does All the Labs have Appropriate lighting available?*"}
+                        options={["Yes", "No"]}
+                        radioRegister={{ ...register('appropriateLighting', { required: true }) }}
+                        error={errors.appropriateLighting ? "Required" : ""}
+                    />
+
+                    <Radio
+                        title={"Do the Labs have Printer Available?*"}
+                        options={["Yes", "No"]}
+                        radioRegister={{ ...register('printerAvailable', { required: true }) }}
+                        error={errors.printerAvailable ? "Required" : ""}
+                    />
+                </div>
 
                 <Input
-                    label={"Floor*"}
-                    classname={"lg:col-span-6 mb-3"}
-                    type={"text"} />
+                    label={"Printer Make And Model*"}
+                    classname={"lg:col-span-12"}
+                    type={"text"}
+                    inputRegister={{ ...register('printerModel', { required: true }) }}
+                    error={errors.printerModel ? "Required" : ""}
+                />
 
-                <Input
-                    label={"Lab Name*"}
-                    classname={"lg:col-span-6 mb-3"}
-                    type={"text"} />
-
-                <Input
-                    label={"Lab Number*"}
-                    classname={"lg:col-span-6 mb-3"}
-                    type={"text"} />
-
-
-                <Input
-                    label={"No. Of Nodes*"}
-                    classname={"lg:col-span-6 mb-3"}
-                    type={"text"} />
-
-
-                <Input
-                    label={"No. Of CCTVs*"}
-                    classname={"lg:col-span-6 mb-3"}
-                    type={"text"} />
             </div>
 
-
-            <Radio
-                title={"AC Available?*"}
-                options={["Yes", "No"]}
-            />
-            <Radio
-                title={"Fans Available?*"}
-                options={["Yes", "No"]}
-            />
-            <Radio
-                title={"Is Noice Free And Soundproof?*"}
-                options={["Yes", "No"]}
-            />
-            <Radio
-                title={"Partition Available Between 2 Nodes*"}
-                options={["Yes", "No"]}
-            />
-            <Radio
-                title={"Appropriate Lighting Available?*"}
-                options={["Yes", "No"]}
-            />
-            <Radio
-                title={"Printer Available?*"}
-                options={["Yes", "No"]}
-            />
-            <p className="text-[16px] font-normal text-[#864F20] mb-5">
-                Printer Details
-            </p>
-
-            <div className="relative h-[58px] mb-5">
-                <label className=" absolute top-[-12px] left-[20px] text-[12px] z-20 text-[rgba(0,0,0,0.6)] bg-white p-1 tracking-wide">
-                    Printer Make And Model*
-                </label>
-                <input className=" absolute top-0 left-0 w-full bg-none border border-slate-400 outline-none p-4 text-[16px] rounded-lg font-normal z-10" />
-            </div>
         </>
     )
 }
